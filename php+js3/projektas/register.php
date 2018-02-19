@@ -4,20 +4,19 @@
 
 </script>
 <script type="text/javascript">
-
+  // vykdoma tik tuomet kai visas dokumentas užkrautas
   $(function(){
-    
+
     $("#submit").on("click", function(){
       event.preventDefault();
-      var data = $("#form").serialize();
-      createUser(data);
+      createUser($("#form").serialize());
     })
 
 
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15, // Creates a dropdown of 15 years to control year,
-      today: 'Šiandien',
+      today: 'dgd',
       clear: 'Išvalyti',
       close: 'Gerai',
       monthsFull: [ 'Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis' ],
@@ -30,6 +29,7 @@
       firstDay: 1
     });
   })
+
 </script>
 <div class="container">
   <h1>Registracijos forma</h1>
@@ -68,9 +68,16 @@
             <label for="password2">Pakatokite slaptažodį</label>
           </div>
         </div>
+        <div class="row">
+          <div class="col s6">
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit
+            </button>
+          </div>
+          <div class="col s6">
+            <div id="response"></div>
+          </div>
+        </div>
 
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit">Submit
-        </button>
 
       </form>
     </div>
